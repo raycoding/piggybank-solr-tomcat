@@ -44,3 +44,5 @@ RUN ln -s $SOLR_ZK_CLI /solr-zk-cli
 RUN chmod 755 -R $SOLR_HOME
 RUN chmod +x /usr/lib/$TOMCAT/bin/*.sh
 EXPOSE 8983
+
+RUN rm -f /usr/lib/$SOLR.zip && rm -rf /usr/lib/$TOMCAT.zip
