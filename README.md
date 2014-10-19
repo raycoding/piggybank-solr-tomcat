@@ -4,9 +4,9 @@ Automated SolrCloud Bootstrap with Solr 4.8.1 running on Apache Tomcat 7.0.32 or
 
 ### Steps to run Solr Cloud
 
-  1. The Docker Image depends on raycoding/piggybank-zookeeper Docker Image as we will be using **Zookeeper** for managing our cluster. To run Zookeeper
+  1. The Docker Image depends on raycoding/piggybank-zookeeper Docker Image as we will be using **Zookeeper** for managing our cluster. To run Zookeeper with Exhibitor without s3backup. [Read more about raycoding/piggybank-zookeeper](https://registry.hub.docker.com/u/raycoding/piggybank-zookeeper/)
       - `docker pull raycoding/piggybank-zookeeper`
-      - `docker run --name zookeeper -p 2181:2181 -p 2888:2888 -p 3888:3888 raycoding/piggybank-zookeeper`
+      - `docker run -name zookeeper -p 8383:8383 -p 2181:2181 -p 2888:2888 -p 3888:3888 -e HOSTNAME=127.0.0.1 raycoding/piggybank-zookeeper`
       - The above command will start Zookeeper in foreground.
       - The **--name** parameter is important as we would need to reference in our other containers.
       
